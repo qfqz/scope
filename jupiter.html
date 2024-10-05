@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="s.png">
+    <link rel="stylesheet" tybe="text/css" href="orrery.css">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+           <source src="render/planets/JUPITER.mkv" type="video/mp4">
+           Your browser does not support the video tag.
+        </video>
+     </div>
+     <div class="menu">
+        <div class="toggle"><img src="./img/menu.png" alt="Menu"></div>
+        <li style="--i:1; --clr:gray;">
+            <a href="mercury.html">
+                <img src="./img/mercury.png" alt="Mercury" style="width: 100%; height: 100%; object-fit: cover;" >
+            </a>
+        </li>
+        <li style="--i:2; --clr:palegoldenrod;">
+            <a href="venus.html">
+                <img src="./img/venus.png" alt="Venus" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:3; --clr:deepskyblue;">
+            <a href="earth.html">
+                <img src="./img/earth.png" alt="Earth" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:4; --clr:orangered;">
+            <a href="mars.html">
+                <img src="./img/mars.png" alt="Mars" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:5; --clr:peru;">
+            <a href="jupiter.html">
+                <img src="./img/jupiter.png" alt="Jupiter" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:6; --clr:khaki;">
+            <a href="saturn.html">
+                <img src="./img/saturnnn.png" alt="Saturn" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:7; --clr:lightblue;">
+            <a href="uranus.html">
+                <img src="./img/uranus.png" alt="Uranus" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:8; --clr:royalblue;">
+            <a href="neptune.html">
+                <img src="./img/neptune.png" alt="Neptune" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>        
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        document.querySelector('.toggle').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+    </script>
+    <a href="index.html"><img class="logo" src="s.png"></a>
+
+    <div id="info-panel" style="background-color: rgb(190, 168, 149);">
+        <div class="info-content">
+            <h1 style="font-family: sans-serif">Jupiter</h1>
+            <h5 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Gasy</h5>
+            <p style="text-decoration: double;">Planet information: <br>
+                
+                Jupiter is the largest planet in the solar system. Its thick atmosphere of hydrogen and helium is home to storms, including the Great Red Spot. Jupiter has over 75 moons, including the largest, Ganymede, and it rotates quickly, with a day lasting just 10 hours</p>
+            <hr>
+            <p>Rank :</p><p>5 TH (The largest planet)</p>
+            <hr>
+            <p>Distance from the sun :</p><p style="margin-right: 90px;">5.2 AU</p>
+            <hr>
+            <p> Earth days:</p><p>4333 days</p>
+            <hr>
+            <p>Gravity</p><p>24.79 m/s²</p>
+            <hr>
+            <p>Moon numbers:</p><p>75</p>
+        </div>
+    </div>
+</body>

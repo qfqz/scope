@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="s.png">
+    <link rel="stylesheet" tybe="text/css" href="orrery.css">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+           <source src="render/planets/MERCURY.mkv" type="video/mp4">
+           Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="menu">
+        <div class="toggle"><img src="./img/menu.png" alt="Menu"></div>
+        <li style="--i:1; --clr:gray;">
+            <a href="mercury.html">
+                <img src="./img/mercury.png" alt="Mercury" style="width: 100%; height: 100%; object-fit: cover;" >
+            </a>
+        </li>
+        <li style="--i:2; --clr:palegoldenrod;">
+            <a href="venus.html">
+                <img src="./img/venus.png" alt="Venus" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:3; --clr:deepskyblue;">
+            <a href="earth.html">
+                <img src="./img/earth.png" alt="Earth" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:4; --clr:orangered;">
+            <a href="mars.html">
+                <img src="./img/mars.png" alt="Mars" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:5; --clr:peru;">
+            <a href="jupiter.html">
+                <img src="./img/jupiter.png" alt="Jupiter" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:6; --clr:khaki;">
+            <a href="saturn.html">
+                <img src="./img/saturnnn.png" alt="Saturn" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:7; --clr:lightblue;">
+            <a href="uranus.html">
+                <img src="./img/uranus.png" alt="Uranus" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>
+        <li style="--i:8; --clr:royalblue;">
+            <a href="neptune.html">
+                <img src="./img/neptune.png" alt="Neptune" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </li>        
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        document.querySelector('.toggle').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+    </script>
+    <a href="index.html"><img class="logo" src="s.png"></a>
+
+    <div id="info-panel">
+        <div class="info-content">
+            <h1 style="font-family: sans-serif">Mercury</h1>
+            <h5 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Swift planet - Rocky</h5>
+            <p style="text-decoration: double;">Planet information: <br>Mercury is the smallest planet in our solar system and the closest to the Sun. Despite its proximi to the Sun, it is not the hottest planet; that title belongs to Venus due to its dense atmosphere.</p><br> Mercury has a very thin atmosphere, composed mostly of oxygen, sodium, and hydrogen, which means it cannot retain heat. As a result, temperatures on Mercury can vary dramatically, ranging from -173°C at night to 427°Cduring the day. Mercury’s surface is covered with craters, similar to Moon, and it has no moons. its extremely slow rotation; it takes 176 Earth days on Mercury (sunrise to sunrise) lasts about </p>
+            <hr>
+            <p>Rank :</p><p>1 ST (the Closest planet to the sun)</p>
+            <hr>
+            <p>Distance from the sun :</p><p style="margin-right: 90px;">0.4 AU</p>
+            <hr>
+            <p> Earth days:</p><p>88 days</p>
+            <hr>
+            <p>Gravity</p><p>3.8 m/s²</p>
+            <hr>
+            <p>Moon numbers:</p><p>0</p>
+
+            
+        </div>
+    </div>
+    </body>

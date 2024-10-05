@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="s.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope | Ideas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+        :root {
+            --midnight-blue: #1B1F3A; 
+            --astral-purple: #8E44AD;  
+            --starlight-silver: #ECF0F1; 
+            --meteor-yellow: #F1C40F;   
+            --meteor-orange: #E67E22;   
+            --ideas: #FFD52E;
+            --dark-gray: #2c3e50;      
+            --border: .1rem solid rgba(0, 0, 0, .1);
+            --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        body {
+            background-color: var(--midnight-blue);
+            color: var(--starlight-silver);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            padding-top: 80px;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 7rem;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 2rem 9%;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .heading {
+            text-align: center;
+            padding-bottom: 2rem;
+            font-size: 5rem;
+        }
+
+        .heading span {
+            position: relative;
+            z-index: 0;
+        }
+
+        .heading span::before {
+            content: '';
+            position: absolute;
+            bottom: 1.2rem;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: var(--ideas);
+            clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
+            z-index: -1;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: var(--starlight-silver);
+            background: var(--meteor-orange);
+            border-radius: .5rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn:hover {
+            background: var(--meteor-yellow);
+        }
+
+        p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            padding-bottom: 2rem;
+        }
+
+        .nav {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            background-color: var(--dark-gray);
+            border-radius: 25px;
+            width: calc(100% - 4px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 10px 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .nav-button {
+            background-color: var(--starlight-silver);
+            color: var(--midnight-blue);
+            padding: 10px 35px;
+            margin-right: 5px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-image {
+            margin-right: 20px;
+        }
+
+        .nav-image img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Media Queries */
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+            section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-image img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-button {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            html {
+                font-size: 50%;
+            }
+
+            .nav-button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+        html::-webkit-scrollbar {
+            width: 1rem;
+        }
+        html::-webkit-scrollbar-track {
+            background: var(--midnight-blue);
+        }
+
+
+        html::-webkit-scrollbar-thumb {
+            background: var(--ideas);
+            border-radius: 5rem;
+        }
+
+        a {
+            color:var(--ideas)
+        }
+        .nav-button.ideas-btn{
+            background-color: #FFD52E;
+            color: #89772E;
+        }
+        .nav-button.opening-btn:hover {
+            background-color: #59d2ff;
+            color: #007286;
+        }
+
+        .nav-button.ideas-btn:hover {
+            background-color: #FFD52E;
+            color: #89772E;
+        }
+
+        .nav-button.research-btn:hover {
+            background-color: #7ED957;
+            color: #036435;
+        }
+
+        .nav-button.about-btn:hover {
+            background-color: #CB6CE6;
+            color: #573162;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav" id="navbar">
+        <div class="nav-image"><img src="img/whitescope.png" alt="Profile Image"></div>
+        <div class="nav-buttons">
+            <a class="nav-button opening-btn" href="index.html">Opening</a>
+            <a class="nav-button ideas-btn" href="#">Ideas</a>
+            <a class="nav-button research-btn" href="research.html">Research</a>
+            <a class="nav-button about-btn" href="about.html">About</a>
+        </div>
+    </nav>
+
+    <section id="scope-orrery">
+        <h2 class="heading">Scope <span>Orrery</span></h2>
+        <p>Scope Orrery is a virtual solar system that displays amazing planets, moons, and comets. The idea was inspired by the <a href="research.html">Old Orrery</a> created in 1704. Although it was not very efficient, it inspired us to reinvent it for modern use.</p>
+    </section>
+
+    <section id="scope-solar-menu">
+        <h2 class="heading">Scope <span>Solar Menu</span></h2>
+        <p>The Scope Orrery is an incredible experience that needs a powerful, efficient interface, which is where the Solar Menu comes in. This menu contains all the solar system's planets, allowing you to select and zoom in on any planet to explore its incredible details.</p>
+    </section>
+
+    <section id="scope-panel">
+        <h2 class="heading">Scope <span>Panel</span></h2>
+        <p>While exploring the stunning details of the planets in the Orrery, the Scope Panel provides fascinating information about each one, enhancing the learning experience by making you feel like you're studying in space itself.</p>
+    </section>
+
+    <section id="scope-credits">
+        <h2 class="heading"><span>Credits</span></h2>
+        <p>These incredible ideas were developed by creative minds at Scope to make learning about the solar system easier and more engaging.</p>
+    </section>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-80px";
+            } else {
+                navbar.style.top = "0";
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>

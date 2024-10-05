@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="s.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope | Opening</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+        :root {
+            --midnight-blue: #1B1F3A; 
+            --astral-purple: #8E44AD;  
+            --starlight-silver: #ECF0F1; 
+            --meteor-yellow: #F1C40F;   
+            --meteor-orange: #E67E22;   
+            --dark-gray: #2c3e50;      
+            --border: .1rem solid rgba(0, 0, 0, .1);
+            --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        body {
+            background-image: url(img/bgb.png);
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            color: var(--starlight-silver);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 80px;
+        }
+
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 7rem;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 2rem 9%;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        html::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: var(--midnight-blue);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: var(--astral-purple);
+            border-radius: 5rem;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: var(--starlight-silver);
+            background: var(--meteor-orange);
+            border-radius: .5rem;
+        }
+
+        .nav {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            background-color: var(--dark-gray);
+            border-radius: 25px;
+            width: calc(100% - 4px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 10px 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .nav-button {
+            background-color: var(--starlight-silver);
+            color: var(--midnight-blue);
+            padding: 10px 35px;
+            margin-right: 5px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-button:last-child {
+            margin-right: 0;
+        }
+
+        .nav-button.opening-btn {
+            background-color: #59d2ff;
+            color: #007286;
+        }
+
+        .nav-button.ideas-btn:hover {
+            background-color: #FFD52E;
+            color: #89772E;
+        }
+
+        .nav-button.research-btn:hover {
+            background-color: #7ED957;
+            color: #036435;
+        }
+
+        .nav-button.about-btn:hover {
+            background-color: #CB6CE6;
+            color: #573162;
+        }
+
+
+
+        .nav-image {
+            margin-right: 20px;
+        }
+        h1 {
+            color: black;      
+        }
+        mark {
+            background-color: transparent;
+            color: #1e0eff;
+        }
+        .nav-image img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Container for text and image */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .text-section {
+            flex: 1;
+            padding-right: 2rem;
+            text-align: center; /* Align text to the left */
+        }
+
+        .image-section {
+            flex: 1.5; /* Increase image space */
+            text-align: right;
+        }
+
+        .image-section img {
+            max-width: 100%; /* Make the image bigger */
+            height: auto;
+        }
+        button {
+            margin-top: 20px;
+            width: 250px;
+            height: 50px;
+            background-color: #8b07b3; /* More consistent with palette */
+            color: var(--starlight-silver);
+            border-radius: 20px;
+            transition: .4s;
+            font-size: 30px;
+        }
+
+        button a {
+            color: var(--starlight-silver);
+            font-weight: 400;
+        }
+
+        button:hover {
+            border-radius: 50PX 20px;
+            background-color: var(--starlight-silver); /* Changes to yellow on hover */
+        }
+
+        button:hover {
+            color: #8b07b3;
+        }
+        /* Typing Animation */
+        .typing {
+            border-right: .1em solid var(--starlight-silver);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+            font-size: 4rem;
+            text-align: left;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: var(--starlight-silver);
+            }
+        }
+
+        /* Media Queries */
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+            .container {
+                flex-direction: column;
+            }
+            .image-section {
+                text-align: center;
+            }
+            .text-section {
+                text-align: center;
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-image img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-button {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            .typing {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            html {
+                font-size: 50%;
+            }
+
+            .nav-button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .typing {
+                font-size: 3rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="nav" id="navbar">
+        <div class="nav-image"><img src="img/whitescope.png" alt="Profile Image"></div>
+        <div class="nav-buttons">
+            <a class="nav-button opening-btn" href="#">Opening</a>
+            <a class="nav-button ideas-btn" href="ideas.html">Ideas</a>
+            <a class="nav-button research-btn" href="research.html">Research</a>
+            <a class="nav-button about-btn" href="about.html">About</a>
+        </div>
+    </nav>
+    
+    <section>
+        <div class="container">
+            <div class="text-section">
+                <h1 class="typing">Discover the <mark>Solar System</mark> like never before.</h1>
+                <a href="orrery.html"><button>Start</button></a>
+                            </div>
+        </div>
+    </section>
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-80px";
+            } else {
+                navbar.style.top = "0";
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>

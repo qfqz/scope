@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="s.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope | Research</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+        :root {
+            --midnight-blue: #1B1F3A; 
+            --astral-purple: #8E44AD;  
+            --starlight-silver: #ECF0F1; 
+            --meteor-yellow: #F1C40F;   
+            --research: #7ED957;
+            --meteor-orange: #E67E22;   
+            --dark-gray: #2c3e50;      
+            --border: .1rem solid rgba(0, 0, 0, .1);
+            --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        body {
+            background-color: var(--midnight-blue);
+            color: var(--starlight-silver);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            padding-top: 80px;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 7rem;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 2rem 9%;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        section.visible {
+            opacity: 1;
+        }
+
+        hr {
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        hr.visible {
+            opacity: 1;
+        }
+
+        html::-webkit-scrollbar {
+            width: 1rem;
+        }
+        html::-webkit-scrollbar-track {
+            background: var(--midnight-blue);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: var(--research);
+            border-radius: 5rem;
+        }
+
+        .heading {
+            text-align: center;
+            padding-bottom: 2rem;
+            font-size: 5rem;
+        }
+
+        .heading span {
+            position: relative;
+            z-index: 0;
+        }
+
+        .heading span::before {
+            content: '';
+            position: absolute;
+            bottom: 1.2rem;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: var(--research);
+            clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
+            z-index: -1;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: var(--starlight-silver);
+            background: var(--meteor-orange);
+            border-radius: .5rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn:hover {
+            background: var(--meteor-yellow);
+        }
+
+
+        .nav {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            background-color: var(--dark-gray);
+            border-radius: 25px;
+            width: calc(100% - 4px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 10px 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .nav-button {
+            background-color: var(--starlight-silver);
+            color: var(--midnight-blue);
+            padding: 10px 35px;
+            margin-right: 5px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .nav-button:last-child {
+            margin-right: 0;
+        }
+        .nav-button.opening-btn:hover {
+            background-color: #59d2ff;
+            color: #007286;
+        }
+
+        .nav-button.ideas-btn:hover {
+            background-color: #FFD52E;
+            color: #89772E;
+        }
+
+        .nav-button.research-btn {
+            background-color: #7ED957;
+            color: #036435;
+        }
+
+        .nav-button.about-btn:hover {
+            background-color: #CB6CE6;
+            color: #573162;
+        }
+        .nav-image {
+            margin-right: 20px;
+        }
+
+        .nav-image img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        h2 {
+            font-weight: normal;
+            font-size: 2rem;
+        }
+
+        .styled-hr {
+            border: none;
+            height: 1.5px;
+            background-color: var(--research);
+            margin: 2rem;
+            width: 50%;
+        }
+
+                section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        hr.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* end */
+        /* Media Queries */
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+            section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .nav-image img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-button {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            html {
+                font-size: 50%;
+            }
+
+            .nav-button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="nav" id="navbar">
+        <div class="nav-image"><img src="img/whitescope.png" alt="Profile Image"></div>
+        <div class="nav-buttons">
+            <a class="nav-button opening-btn" href="index.html">Opening</a>
+            <a class="nav-button ideas-btn" href="ideas.html">Ideas</a>
+            <a class="nav-button research-btn" href="#">Research</a>
+            <a class="nav-button about-btn" href="about.html">About</a>
+        </div>
+    </nav>
+    
+<!-- Introduction -->
+    <section class="intro" id="intro">
+        <h1 class="heading"><span>History</span></h1>
+        <h2>The Orrery is a mechanical device used to display the motion of planets around the sun, thereby illustrating the heliocentric model of the solar system. First invented by Joseph Williamson in 1704, the device was named after Charles Boyle, the 4th Earl of Orrery, who ordered its construction. Early designs were influenced by ancient works, including those of the Greeks, who attempted to model planetary movements. While mechanical planetariums had existed prior to Williamson's work, his version was more advanced and became a widely popular tool for describing the universe's structure.        </h2>
+    </section>
+    <hr class="styled-hr">
+    <!-- func -->
+    <section class="history" id="history">
+        <h1 class="heading"><span>Function</span></h1>
+        <h2>The Orrery was primarily created to conceptualize and visually translate the movement of planets and their orbits around the sun into a comprehensible model. By making the solar system’s structure tangible and interactive, it enabled scientists, educators, and students to better understand the heliocentric theory, with the sun at the center and planets revolving around it.</h2>
+    </section>
+    <hr class="styled-hr">
+    <!-- Uses -->
+    <section class="uses" id="uses">
+        <h1 class="heading"><span>Design Evolution</span></h1>
+                <h2>The Orrery has undergone significant evolution since its inception. Early models were rudimentary, hand-powered mechanisms with basic representations of the sun and planets. Over time, more sophisticated versions emerged, incorporating additional planets, their satellites, and even their orbital paths. The mechanical design of Orreries shifted from simple gears and cranks to more complex systems, and today, many Orreries are digital, allowing for precise calculations and dynamic visualizations.                </h2>
+    </section>
+    <hr class="styled-hr">
+    <!-- Structure -->
+    <section class="structure" id="structure">
+        <h1 class="heading"><span>Enhancements</span></h1>
+                <h2>In modern times, the Orrery has embraced cutting-edge technologies like artificial intelligence, augmented reality (AR), and virtual reality (VR), making planetary interactions even more engaging. These innovations allow users to adjust the scale of the model, explore planetary atmospheres, and view detailed data on orbital distances. By merging the traditional mechanical design with contemporary digital tools, the Orrery continues to serve as a valuable educational resource.                </h2>
+    </section>
+    <hr class="styled-hr">
+
+    <section class="structure" id="structure">
+        <h1 class="heading"><span>Impact & Legacy</span></h1>
+                <h2>Since its invention, the Orrery has been a crucial educational tool in astronomy, helping astronomers explain the orbits and movements of celestial bodies. It not only symbolizes the progress of scientific thought but also represents humanity’s timeless fascination with the cosmos. The Orrery stands as a testament to human ingenuity and our desire to understand the mysteries beyond Earth.                </h2>
+    </section>
+    <hr class="styled-hr">
+
+    <section class="structure" id="structure">
+        <h1 class="heading"><span>Potential</span></h1>
+                <h2>The Orrery’s evolution is far from over. As technology continues to advance, new innovations will further enhance its educational potential. Combining the timeless elegance of mechanical Orreries with the power of digital simulations, future models could offer even greater interactivity, precision, and insights into our universe. By embracing new technologies, the Orrery will remain a dynamic and powerful tool for future generations of learners and scientists.                </h2>
+    </section>
+    <br><br><br><br><br>
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-80px";
+            } else {
+                navbar.style.top = "0";
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll('section, hr');
+            
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, index * 300);
+            });
+        });
+
+    </script>
+</body>
+</html>

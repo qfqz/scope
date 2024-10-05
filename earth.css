@@ -1,0 +1,15 @@
+h1{
+    font-family: sans-serif;
+    font-size: 50px;
+    position: relative;left: 20px;
+}
+b{
+    font-family: sans-serif;
+    font-size: 30px;
+    position: relative;left: 20px;
+
+}
+img{
+    border-radius: 50px 20px;
+    position: relative;left: 20px;top: 30px;
+}

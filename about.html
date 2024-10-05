@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="s.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope | About Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+        :root {
+            --midnight-blue: #1B1F3A; 
+            --astral-purple: #8E44AD;  
+            --starlight-silver: #ECF0F1; 
+            --meteor-yellow: #F1C40F;   
+            --meteor-orange: #E67E22;   
+            --dark-gray: #2c3e50;      
+            --border: .1rem solid rgba(0, 0, 0, .1);
+            --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        body {
+            background-color: var(--midnight-blue);
+            color: var(--starlight-silver);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            padding-top: 80px;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 7rem;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 2rem 9%;
+        }
+
+        html::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: var(--midnight-blue);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: var(--astral-purple);
+            border-radius: 5rem;
+        }
+
+        .heading {
+            text-align: center;
+            padding-bottom: 2rem;
+            font-size: 5rem;
+        }
+
+        .heading span {
+            position: relative;
+            z-index: 0;
+        }
+
+        .heading span::before {
+            content: '';
+            position: absolute;
+            bottom: 1.2rem;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: var(--astral-purple);
+            clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
+            z-index: -1;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: var(--starlight-silver);
+            background: var(--meteor-orange);
+            border-radius: .5rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn:hover {
+            background: var(--meteor-yellow);
+        }
+
+        .team .box-container, .members .box-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .team .box {
+            flex: 1 1 calc(33.33% - 1.5rem);
+            text-align: center;
+            padding: 2rem;
+            border-radius: .5rem;
+            background-color: var(--dark-gray);
+            box-shadow: var(--box-shadow);
+            border: var(--border);
+        }
+        .members .box {
+    flex: 1 1 calc(50% - 1.5rem); /* Change from 33.33% to 50% */
+    text-align: center;
+    padding: 2rem;
+    border-radius: .5rem;
+    background-color: var(--dark-gray);
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+}
+        .team .box img, .members .box img {
+            height: 7rem;
+            width: 7rem;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team .box h3, .members .box h3 {
+            font-size: 2.3rem;
+            color: var(--starlight-silver);
+            padding-top: 1rem;
+        }
+
+        .team .box p, .members .box p {
+            font-size: 1.4rem;
+            padding: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .nav {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            background-color: var(--dark-gray);
+            border-radius: 25px;
+            width: calc(100% - 4px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 10px 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .nav-button {
+            background-color: var(--starlight-silver);
+            color: var(--midnight-blue);
+            padding: 10px 35px;
+            margin-right: 5px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-button:last-child {
+            margin-right: 0;
+        }
+
+        .nav-buttons a.nav-button:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-button.opening-btn:hover {
+            background-color: #59d2ff;
+            color: #007286;
+        }
+
+        .nav-button.ideas-btn:hover {
+            background-color: #FFD52E;
+            color: #89772E;
+        }
+
+        .nav-button.research-btn:hover {
+            background-color: #7ED957;
+            color: #036435;
+        }
+
+        .nav-button.about-btn {
+            background-color: #CB6CE6;
+            color: #573162;
+        }
+
+        .nav-image {
+            margin-right: 20px;
+        }
+
+        .nav-image img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Media Queries */
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+            section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team .box, .members .box {
+                flex: 1 1 calc(50% - 1.5rem);
+            }
+
+            .nav-image img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-button {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team .box, .members .box {
+                flex: 1 1 100%;
+            }
+            html {
+                font-size: 50%;
+            }
+
+            .nav-button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="nav" id="navbar">
+        <div class="nav-image"><img src="img/whitescope.png" alt="Profile Image"></div>
+        <div class="nav-buttons">
+            <a class="nav-button opening-btn" href="index.html">Opening</a>
+            <a class="nav-button ideas-btn" href="ideas.html">Ideas</a>
+            <a class="nav-button research-btn" href="research.html">Research</a>
+            <a class="nav-button about-btn" href="#">About</a>
+        </div>
+    </nav>
+
+    <section class="team" id="team">
+        <h1 class="heading"> <span>Team</span> Information</h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="./img/whitescope.png" alt="Scope Logo">
+                <h3>Team Logo</h3>
+                <p>Our logo features the Scorpius constellation, symbolizing passion, strength, and transformation. This makes it a powerful emblem for brands seeking to convey strength and mystery. Additionally, the first three letters of our team name, "<b>Scope</b>," match those of "Scorpius." </p>
+            </div>
+
+            <div class="box">
+                <img src="./img/scopenameimg.png" alt="Team Name">
+                <h3>Team Name</h3>
+                <p>Our team name is <b>Scope</b>. In project management, "scope" defines project boundaries and deliverables management. Also, "Scope" suggests precision, focusing on tasks with clarity and direction.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="members" id="members">
+        <h1 class="heading">Team <span>Members</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="./img/eiad.png" alt="Eiad Mohammed">
+                <h3>Eiad Mohammed</h3>
+                <p>HTML & CSS Developer</p>
+            </div>
+
+            <div class="box">
+                <img src="./img/marwan.png" alt="Marwan Sherif">
+                <h3>Marwan Sherif</h3>
+                <p>HTML & CSS Developer</p>
+            </div>
+
+            <div class="box">
+                <img src="./img/moaz.png" alt="Moaz Moustafa">
+                <h3>Moaz Moustafa</h3>
+                <p>HTML, CSS & JS Developer</p>
+            </div>
+
+           <!---- <div class="box">
+                <img src="./img/user.png" alt="Roqaia Tarek">
+                <h3>Roqaia Tarek</h3>
+                <p>Designer</p>
+            </div>-->
+
+            <!--<div class="box">
+                <img src="./img/user.png" alt="Hagar Shalan">
+                <h3>Hagar Shalan</h3>
+                <p>HTML & CSS Developer</p>
+            </div>-->
+        </div>
+    </section>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-80px";
+            } else {
+                navbar.style.top = "0";
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>
