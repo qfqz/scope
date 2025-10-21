@@ -7,316 +7,367 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scope | Opening</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         :root {
-            --midnight-blue: #1B1F3A; 
-            --astral-purple: #8E44AD;  
-            --starlight-silver: #ECF0F1; 
-            --meteor-yellow: #F1C40F;   
-            --meteor-orange: #E67E22;   
-            --dark-gray: #2c3e50;      
-            --border: .1rem solid rgba(0, 0, 0, .1);
-            --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            --ink: #0b1026;
+            --ink-soft: rgba(11, 16, 38, 0.7);
+            --iris: #7b5cff;
+            --iris-soft: rgba(123, 92, 255, 0.2);
+            --amber: #f6c945;
+            --cloud: #f8f9ff;
+            --card: rgba(22, 30, 56, 0.65);
+            --border: 1px solid rgba(255, 255, 255, 0.1);
+            --shadow: 0 30px 60px rgba(11, 16, 38, 0.45);
         }
 
         * {
-            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            outline: none;
-            border: none;
-            text-decoration: none;
-            text-transform: capitalize;
-            transition: all .2s linear;
+            font-family: 'Poppins', sans-serif;
+            color: inherit;
         }
 
         body {
-            background-image: url(img/bgb.png);
-            background-repeat: no-repeat;
-            background-size: cover; /* Ensures the image covers the entire background */
-            background-position: center; /* Centers the image */
-            color: var(--starlight-silver);
+            min-height: 100vh;
+            background: linear-gradient(145deg, rgba(11, 16, 38, 0.95), rgba(14, 25, 52, 0.85)), url('img/bgb.png') center/cover fixed;
+            color: var(--cloud);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding-top: 80px;
         }
 
-
-        html {
-            font-size: 62.5%;
-            overflow-x: hidden;
-            scroll-padding-top: 7rem;
-            scroll-behavior: smooth;
-        }
-
-        section {
-            padding: 2rem 9%;
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        html::-webkit-scrollbar {
-            width: 1rem;
-        }
-
-        html::-webkit-scrollbar-track {
-            background: var(--midnight-blue);
-        }
-
-        html::-webkit-scrollbar-thumb {
-            background: var(--astral-purple);
-            border-radius: 5rem;
-        }
-
-        .btn {
-            margin-top: 1rem;
-            display: inline-block;
-            padding: .9rem 3rem;
-            font-size: 1.7rem;
-            cursor: pointer;
-            color: var(--starlight-silver);
-            background: var(--meteor-orange);
-            border-radius: .5rem;
-        }
-
-        .nav {
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            background-color: var(--dark-gray);
-            border-radius: 25px;
-            width: calc(100% - 4px);
+        body::before {
+            content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 10;
-            padding: 10px 20px;
-            box-shadow: var(--box-shadow);
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.18) 0, transparent 45%),
+                radial-gradient(circle at 90% 10%, rgba(123, 92, 255, 0.18) 0, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(246, 201, 69, 0.18) 0, transparent 55%);
+            opacity: 0.45;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .nav-button {
-            background-color: var(--starlight-silver);
-            color: var(--midnight-blue);
-            padding: 10px 35px;
-            margin-right: 5px;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s;
+        main {
+            flex: 1;
+            width: min(1100px, 92vw);
+            margin: 110px auto 0;
         }
 
-        .nav-button:last-child {
-            margin-right: 0;
+        header {
+            position: fixed;
+            inset: 0 auto auto 0;
+            width: 100%;
+            padding: 22px clamp(1.5rem, 4vw, 4rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(120deg, rgba(11, 16, 38, 0.78), rgba(26, 33, 68, 0.78));
+            backdrop-filter: blur(18px);
+            border-bottom: var(--border);
+            z-index: 20;
         }
 
-        .nav-button.opening-btn {
-            background-color: #59d2ff;
-            color: #007286;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        .nav-button.ideas-btn:hover {
-            background-color: #FFD52E;
-            color: #89772E;
-        }
-
-        .nav-button.research-btn:hover {
-            background-color: #7ED957;
-            color: #036435;
-        }
-
-        .nav-button.about-btn:hover {
-            background-color: #CB6CE6;
-            color: #573162;
-        }
-
-
-
-        .nav-image {
-            margin-right: 20px;
-        }
-        h1 {
-            color: black;      
-        }
-        mark {
-            background-color: transparent;
-            color: #1e0eff;
-        }
-        .nav-image img {
-            width: 60px;
-            height: 60px;
+        .brand img {
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
-            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Container for text and image */
-        .container {
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: clamp(0.5rem, 2vw, 1.8rem);
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: 999px;
+            color: rgba(248, 249, 255, 0.85);
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        nav a.active,
+        nav a:hover,
+        nav a:focus-visible {
+            background: rgba(123, 92, 255, 0.25);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            align-items: center;
+            gap: clamp(2rem, 4vw, 4rem);
+            padding-bottom: clamp(3rem, 6vw, 6rem);
+            border-bottom: var(--border);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            margin: 1.6rem 0 2.4rem;
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            line-height: 1.6;
+            color: rgba(248, 249, 255, 0.75);
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta.primary {
+            background: linear-gradient(135deg, #7b5cff, #5f3bd4);
+            box-shadow: 0 18px 36px rgba(123, 92, 255, 0.35);
+        }
+
+        .cta.primary:hover,
+        .cta.primary:focus-visible {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 24px 40px rgba(123, 92, 255, 0.45);
+        }
+
+        .cta.secondary {
+            background: rgba(248, 249, 255, 0.1);
+            border: var(--border);
+        }
+
+        .cta.secondary:hover,
+        .cta.secondary:focus-visible {
+            transform: translateY(-3px);
+            background: rgba(248, 249, 255, 0.18);
+        }
+
+        .hero-visual {
+            position: relative;
+            padding: clamp(1.5rem, 3vw, 3rem);
+            background: rgba(22, 30, 56, 0.5);
+            border-radius: 24px;
+            border: var(--border);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .hero-visual::before,
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        .hero-visual::before {
+            width: 280px;
+            height: 280px;
+            background: rgba(123, 92, 255, 0.35);
+            top: -80px;
+            right: -40px;
+        }
+
+        .hero-visual::after {
+            width: 220px;
+            height: 220px;
+            background: rgba(246, 201, 69, 0.25);
+            bottom: -60px;
+            left: -40px;
+        }
+
+        .hero-visual img {
+            position: relative;
+            width: 100%;
+            border-radius: 18px;
+            border: var(--border);
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: clamp(1.8rem, 3vw, 2.5rem);
+            padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 7vw, 6rem);
+        }
+
+        .card {
+            background: var(--card);
+            border: var(--border);
+            border-radius: 22px;
+            padding: clamp(1.6rem, 3vw, 2.3rem);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.35s ease, background 0.35s ease;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: rgba(248, 249, 255, 0.75);
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .card a {
+            align-self: flex-start;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--amber);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-8px);
+            background: rgba(123, 92, 255, 0.18);
+        }
+
+        footer {
+            padding: 2.4rem clamp(1.5rem, 4vw, 4rem) 3.6rem;
+            color: rgba(248, 249, 255, 0.65);
+            font-size: 0.9rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            width: 100%;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .text-section {
-            flex: 1;
-            padding-right: 2rem;
-            text-align: center; /* Align text to the left */
+        footer a {
+            color: rgba(248, 249, 255, 0.65);
+            text-decoration: none;
         }
 
-        .image-section {
-            flex: 1.5; /* Increase image space */
-            text-align: right;
+        footer a:hover,
+        footer a:focus-visible {
+            color: var(--amber);
         }
 
-        .image-section img {
-            max-width: 100%; /* Make the image bigger */
-            height: auto;
-        }
-        button {
-            margin-top: 20px;
-            width: 250px;
-            height: 50px;
-            background-color: #8b07b3; /* More consistent with palette */
-            color: var(--starlight-silver);
-            border-radius: 20px;
-            transition: .4s;
-            font-size: 30px;
-        }
-
-        button a {
-            color: var(--starlight-silver);
-            font-weight: 400;
-        }
-
-        button:hover {
-            border-radius: 50PX 20px;
-            background-color: var(--starlight-silver); /* Changes to yellow on hover */
-        }
-
-        button:hover {
-            color: #8b07b3;
-        }
-        /* Typing Animation */
-        .typing {
-            border-right: .1em solid var(--starlight-silver);
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
-            font-size: 4rem;
-            text-align: left;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink-caret {
-            from, to {
-                border-color: transparent;
-            }
-            50% {
-                border-color: var(--starlight-silver);
-            }
-        }
-
-        /* Media Queries */
-
-        @media (max-width: 991px) {
-            html {
-                font-size: 55%;
-            }
-            .container {
+        @media (max-width: 720px) {
+            header {
                 flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
             }
-            .image-section {
-                text-align: center;
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding-left: 4px;
             }
-            .text-section {
-                text-align: center;
-                padding-right: 0;
+
+            nav a {
+                font-size: 1.1rem;
             }
         }
 
-        @media (max-width: 768px) {
-            .nav-image img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .nav-button {
-                padding: 8px 20px;
-                font-size: 14px;
-            }
-
-            .typing {
-                font-size: 3.5rem;
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
             }
         }
-
-        @media (max-width: 576px) {
-            html {
-                font-size: 50%;
-            }
-
-            .nav-button {
-                padding: 8px 15px;
-                font-size: 12px;
-            }
-
-            .typing {
-                font-size: 3rem;
-            }
-        }
-
     </style>
 </head>
-
 <body>
-    <nav class="nav" id="navbar">
-        <div class="nav-image"><img src="img/whitescope.png" alt="Profile Image"></div>
-        <div class="nav-buttons">
-            <a class="nav-button opening-btn" href="#">Opening</a>
-            <a class="nav-button ideas-btn" href="ideas.html">Ideas</a>
-            <a class="nav-button research-btn" href="research.html">Research</a>
-            <a class="nav-button about-btn" href="about.html">About</a>
+    <header>
+        <div class="brand">
+            <img src="img/whitescope.png" alt="Scope Logo">
+            <span>Scope Observatory</span>
         </div>
-    </nav>
-    
-    <section>
-        <div class="container">
-            <div class="text-section">
-                <h1 class="typing">Discover the <mark>Solar System</mark> like never before.</h1>
-                <a href="orrery.html"><button>Start</button></a>
-                            </div>
-        </div>
-    </section>
+        <nav>
+            <ul>
+                <li><a class="active" href="#opening">Opening</a></li>
+                <li><a href="ideas.html">Ideas</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="opening">
+        <section class="hero">
+            <div class="hero-copy">
+                <h1>Discover our <span>solar system</span> like never before.</h1>
+                <p>Scope turns stargazing into storytelling. Dive into interactive models, guided research, and vivid journeys through every planet orbiting our Sun.</p>
+                <div class="cta-group">
+                    <a class="cta primary" href="orrery.html">Launch the orrery</a>
+                    <a class="cta secondary" href="earth.html">Explore planet tours</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <img src="img/solar.png" alt="Stylized planet alignment">
+            </div>
+        </section>
+
+        <section class="highlights" aria-label="Featured experiences">
+            <article class="card">
+                <h2>Guided ideas</h2>
+                <p>Jump-start curiosity with curated prompts, classroom projects, and observation missions built for all ages.</p>
+                <a href="ideas.html">Visit ideas →</a>
+            </article>
+            <article class="card">
+                <h2>Deep research</h2>
+                <p>Trace discoveries from the first telescopes to modern probes, with sources and timelines to support your work.</p>
+                <a href="research.html">Read research →</a>
+            </article>
+            <article class="card">
+                <h2>Meet the team</h2>
+                <p>Learn about the explorers and educators powering Scope, and see how to collaborate on future expeditions.</p>
+                <a href="about.html">About Scope →</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <span>© <span id="year"></span> Scope Observatory. All cosmic rights reserved.</span>
+        <a href="mailto:hello@scope.space">hello@scope.space</a>
+    </footer>
+
     <script>
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('navbar');
-
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > lastScrollTop) {
-                navbar.style.top = "-80px";
-            } else {
-                navbar.style.top = "0";
-            }
-            lastScrollTop = scrollTop;
-        });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
